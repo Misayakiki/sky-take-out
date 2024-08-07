@@ -5,17 +5,25 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "employee")
+
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Column(name = "id" )
+    @XmlElement(name = "id", required = true)
     private Long id;
 
     private String username;
